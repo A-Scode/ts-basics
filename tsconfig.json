@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "lib" : ["DOM" , "ES2017"] ,
+        "watch": true,
+        "noImplicitAny" : true , //will not make implicitly type : any
+    }
+}
