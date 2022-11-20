@@ -71,6 +71,36 @@ console.table(arr3);
 var arr4;
 arr4 = [2, false, '😭'];
 console.table(arr4);
+// readonly Tuple
+var arr5 = [23, null, undefined];
+console.table(arr5);
+// object types
+var car = {
+    brand: "MS",
+    models: ["LXI", "VXI", "ZXI"],
+    isSeddan: false,
+    rank: 22,
+    name: "swift desire"
+}; // here also inference can be used if do give types object
+car.name = 344; // will not throw error because any type
+// car.isSeddan = 5 ; // will throw error because of boolean type
+//index signaturing
+var nameAgeMap = {};
+nameAgeMap.jack = 45; // will not throw error , number is assigned to string
+// symbols can also be used as keys in objects
+var sym1 = Symbol(); // symbols are unique
+var sym2 = Symbol();
+// console.log(sym1 === sym2);  // always return false
+// Enum
+var e1;
+(function (e1) {
+    e1[e1["North"] = 0] = "North";
+    e1[e1["South"] = 1] = "South";
+    e1[e1["east"] = 2] = "east";
+    e1[e1["west"] = 3] = "west";
+})(e1 || (e1 = {}));
+;
+console.log(e1.North, e1.South, e1.west);
 // type casting
 console.log(you);
 // converts this to javascirpt 

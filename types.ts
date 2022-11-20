@@ -89,6 +89,31 @@ car.name = 344; // will not throw error because any type
 // car.isSeddan = 5 ; // will throw error because of boolean type
 
 
+//index signaturing
+
+const nameAgeMap : {
+    [index: string] : number,
+    [key : symbol] : any,
+} = {};
+
+nameAgeMap.jack = 45; // will not throw error , number is assigned to string
+
+// symbols can also be used as keys in objects
+
+const sym1 = Symbol(); // symbols are unique
+const sym2 = Symbol();
+
+// console.log(sym1 === sym2);  // always return false
+
+// Enum
+enum e1 {   // same as in c/c++
+    North ,
+    South ,
+    east  ,
+    west
+};
+console.log(e1.North , e1.South , e1.west);
+
 
 
 
