@@ -1,1 +1,1 @@
- happy as style
+this.length * this.length

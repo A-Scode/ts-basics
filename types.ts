@@ -115,6 +115,59 @@ enum e1 {   // same as in c/c++
 console.log(e1.North , e1.South , e1.west);
 
 
+// type aliases 
+
+type str = string;  // simple alias
+type Person = {     // complex alias for object
+    name : str, class : number , isDisabled : boolean
+};
+
+
+const name2 : str = "someName";
+console.log(name2);
+
+const person2 : Person = { name :"hello" , class: 5 , isDisabled:false};
+console.table(person2);
+
+
+// interface
+
+interface square {
+    length : number,
+    area? : (length?:number)=>number, // optional argument
+};
+
+const s1 : square={ length : 5 };
+console.log( s1 );
+
+
+// extending interface
+
+interface rectangle extends square{
+    breadth : number ,
+    diagonal? : ( length?:number , breadth?:number)=>number
+    area? : (length?: number , breadth?:number)=> number
+}
+
+const r1 : rectangle = {
+    length : 5 ,
+    breadth : 10 ,
+    area : (length , breadth)=> length*breadth 
+};
+
+// interfaces are similar to type aliases , interfaces only apply to objects
+
+
+
+// union types 
+
+var status_code : string | number;
+
+status_code = '404'; // it can be string or number
+status_code = 0xFFFF; // hexadecimal number
+
+console.log(status_code);
+
 
 
 // type casting
