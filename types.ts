@@ -169,11 +169,107 @@ status_code = 0xFFFF; // hexadecimal number
 console.log(status_code);
 
 
+function checkAP(a:number , d:number , n? : number , ...nums : number[]) : boolean | string{
+
+    if (!n) var n = nums.length;
+    
+    var formula_sum = (n/2)*((2*a)+ ((n-1) *d));
+    var sum = 0;
+
+    for(let i of nums) sum+=i;
+    console.log(sum)
+
+    return formula_sum == sum;
+}
+
+
+console.log(checkAP( 1 , 1 , 5 , 1,2,3,4,5 ));
+
 
 // type casting
+
+// with as keyword
 console.log(  you as   undefined)
 
+// with <>
+const num2 = 55;
+console.log(<string > <unknown>num2);
 
+
+// class & implementing interfaces
+
+interface Shape {
+    readonly length: number , // only can be assigned here at declaration or in constructor
+    readonly breadth?:number,
+    readonly name : string,
+    getArea : ()=>number,
+    getPerimeter : ()=>number,
+    getName : ()=>string
+};
+
+class Square implements Shape{
+
+    
+    public readonly name : string = "Square";
+
+    public constructor(public length:number){}
+    
+    public getArea():number{
+        return this.length*this.length;
+    }
+    
+    public getPerimeter() : number{
+        return 4*this.length;
+    }
+
+    public getName():string{
+        return this.name;
+    }
+}
+
+const sq1 = new Square(5);
+console.table({
+    area : sq1.getArea(), perimeter : sq1.getPerimeter(),
+    name : sq1.getName()
+})
+
+class Reactangle extends Square{
+
+    public readonly name : string = "Rectangle";
+
+    public constructor(public length:number , public breadth:number){
+        super(length);        
+    }
+
+    public override getArea(): number {
+        return this.length * this.breadth;
+    }
+
+    public override getPerimeter(): number {
+        return 2*(this.length + this.breadth);
+    }
+
+}
+
+const rc1 = new Reactangle(5,10);
+console.table({
+    area : rc1.getArea(), perimeter : rc1.getPerimeter(),
+    name : rc1.getName()
+})
+
+
+// typescript generics
+
+// default can be given as A=string
+// to accept any type <A>
+
+function getarr<A extends number|string >( a :A , b : A):[A,A]{
+
+    return [a,b] ;
+
+}
+
+console.log(getarr<string>("a" , "b"));
 
 
 

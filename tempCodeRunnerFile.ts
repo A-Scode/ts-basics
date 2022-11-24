@@ -1,1 +1,1 @@
-this.length * this.length
+<unknown> num2
