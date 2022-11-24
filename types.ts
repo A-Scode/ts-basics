@@ -272,6 +272,41 @@ function getarr<A extends number|string >( a :A , b : A):[A,A]{
 console.log(getarr<string>("a" , "b"));
 
 
+// utility types
+
+interface man {
+    name: string,
+    age? : number ,
+    dob? : string ,
+    occupation? : string , 
+    isEmployed : boolean
+};
+
+// partial type allow all properties to be optional
+
+const man1 : Partial<man> = {
+    name : "man1"
+};
+
+console.log("partial" , man1);
+
+// required type make all properties required
+
+const man2 : Required<man> = {
+    name:'man2' , age:30, dob:"1010101" , occupation:"student",
+    isEmployed :false
+};
+
+console.log("required" , man2);
+
+// and there are many predefined types like that 
+
+// keyof allows variable to only use keys of a interface as value for it
+
+const man3 : keyof man = "age";  
+
+
+
 
 // converts this to javascirpt 
 async function sayHello(){
